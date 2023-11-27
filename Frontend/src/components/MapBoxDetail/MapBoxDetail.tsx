@@ -1,6 +1,6 @@
-import './MapBoxDetail.css';
 import { MapDataLocationProps, TagProps } from '../../interface/interface';
 import VoteBox from '../VoteBox';
+import './MapBoxDetail.css';
 
 function TagBox({ text }: { text: TagProps }) {
   const style = {

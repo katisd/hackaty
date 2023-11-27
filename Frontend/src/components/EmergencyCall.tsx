@@ -1,7 +1,6 @@
-import React from 'react';
-import { Space, Typography } from 'antd';
+import { Typography } from 'antd';
 
-const { Text, Link } = Typography;
+const { Text } = Typography;
 
 interface emergencyContact {
   logoPath: string;

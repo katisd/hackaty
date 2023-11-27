@@ -12,7 +12,7 @@ export interface MapDataLocationProps {
   lat: number;
   lon: number;
   time_stamp: string;
-  report_status: boolean;
+  report_status: string;
   priority: string;
   vote_score: number;
   photo_url?: string;

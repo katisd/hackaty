@@ -29,12 +29,7 @@ const MapModal = ({
         Map
       </Button>
       <Modal title="Select Map Location" open={isModal} onOk={handleOk} onCancel={handleCancel} footer={null}>
-        <CoordinateMap
-          isModel={isModal}
-          setIsModel={setIsModal}
-          selectedCoor={selectedCoor}
-          setSelectedCoor={setSelectedCoor}
-        />
+        <CoordinateMap setIsModel={setIsModal} setSelectedCoor={setSelectedCoor} />
       </Modal>
     </>
   );

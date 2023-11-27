@@ -1,8 +1,7 @@
-import React from 'react';
-import { UpOutlined, DownOutlined } from '@ant-design/icons';
-import { Button, Divider, Flex, Radio } from 'antd';
-import { MapDataLocationProps } from '../interface/interface';
+import { DownOutlined, UpOutlined } from '@ant-design/icons';
+import { Button } from 'antd';
 import axios from 'axios';
+import { MapDataLocationProps } from '../interface/interface';
 function VoteBox({ data }: { data: MapDataLocationProps | null }) {
   const vote = (isUp: boolean) => {
     console.log(data);

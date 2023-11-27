@@ -1,11 +1,11 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useRef } from 'react';
 import { CoordinateProps, MapDataLocationProps } from '../interface/interface';
 import './FullMap.css';
 
 const { Map } = (await google.maps.importLibrary('maps')) as google.maps.MapsLibrary;
 const { AdvancedMarkerElement } = (await google.maps.importLibrary('marker')) as google.maps.MarkerLibrary;
 
-function toggleHighlight(markerView: any, property: MapDataLocationProps) {
+function toggleHighlight(markerView: any) {
   if (markerView.content.classList.contains('highlight')) {
     markerView.content.classList.remove('highlight');
     markerView.zIndex = null;
@@ -59,7 +59,6 @@ const FullMap = ({
   isStatus: boolean;
 }) => {
   const mapRef = useRef<HTMLDivElement | null>(null);
-  const [map, setMap] = useState<google.maps.Map | null>(null);
 
   useEffect(() => {
     const loadMap = async () => {
@@ -76,7 +75,7 @@ const FullMap = ({
         title: 'ME',
       });
       // marker
-      mapData?.map((data, index) => {
+      mapData?.map((data) => {
         const marker = new AdvancedMarkerElement({
           map: initializedMap,
           position: { lat: data.lat, lng: data.lon },
@@ -87,12 +86,11 @@ const FullMap = ({
         // Add a click listener to each marker instance
         marker.addListener('click', () => {
           {
-            isStatus ? toggleHighlight(marker, data) : null;
+            isStatus ? toggleHighlight(marker) : null;
           }
           setSelected(data);
         });
       });
-      setMap(initializedMap); // update map state
     };
     loadMap();
   }, [mapData]);
