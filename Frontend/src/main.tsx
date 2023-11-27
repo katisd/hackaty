@@ -3,12 +3,11 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import './index.css';
-import StudentMain from './pages/StudentMain';
 import Alert_map from './pages/Alert_map';
-import SosCall from './pages/SosCall';
-import UserReportPage from './pages/UserReportPage';
 import SosAdmin from './pages/SosAdmin';
-import AlertMapForm from './pages/AlertMapForm';
+import SosCall from './pages/SosCall';
+import StudentMain from './pages/StudentMain';
+import UserReportPage from './pages/UserReportPage';
 const router = createBrowserRouter([
   {
     path: '/',
@@ -30,7 +29,6 @@ const router = createBrowserRouter([
     path: '/sos-admin',
     element: <SosAdmin />,
   },
-
 ]);
 
 ReactDOM.createRoot(document.getElementById('root')!).render(

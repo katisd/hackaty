@@ -1,16 +1,15 @@
-import React from 'react';
+import { Typography } from 'antd';
 import Lottie from 'react-lottie';
-import EmergencyCall from '../components/EmergencyCall';
-import FirstAid from '../assets/images/sos_call/FirstAid.svg';
-import PoliceCar from '../assets/images/sos_call/PoliceCar.svg';
 import FireExtinguisher from '../assets/images/sos_call/FireExtinguisher.svg';
+import FirstAid from '../assets/images/sos_call/FirstAid.svg';
 import Headset from '../assets/images/sos_call/Headset.svg';
 import PhoneOutgoing from '../assets/images/sos_call/PhoneOutgoing.svg';
+import PoliceCar from '../assets/images/sos_call/PoliceCar.svg';
+import EmergencyCall from '../components/EmergencyCall';
+import phoneAnimation from '../lotties/Animation - 1700636991063.json';
 import StudentLayout from '../modules/common/StudentLayout';
 import StudentNav from '../modules/common/StudentNav';
-import phoneAnimation from '../lotties/Animation - 1700636991063.json';
 import '../pages/SosCall.css';
-import { Typography } from 'antd';
 
 function SosCall() {
   const defaultOptions = {

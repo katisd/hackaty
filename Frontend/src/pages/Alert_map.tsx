@@ -1,14 +1,13 @@
-import { useEffect, useState } from 'react';
-import MapBoxDetail from '../components/MapBoxDetail/MapBoxDetail';
-import StudentLayout from '../modules/common/StudentLayout';
-import { CoordinateProps, MapDataLocationProps } from '../interface/interface';
-import { FormOutlined, LeftOutlined, CaretUpOutlined } from '@ant-design/icons';
+import { CaretUpOutlined, FormOutlined, LeftOutlined } from '@ant-design/icons';
 import { Button, Spin } from 'antd';
-import { Link, useNavigate } from 'react-router-dom';
-import './Alert_map.css';
 import axios from 'axios';
-import Fullmap from '../components/FullMap';
-
+import { useEffect, useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
+import FullMap from '../components/FullMap';
+import MapBoxDetail from '../components/MapBoxDetail/MapBoxDetail';
+import { CoordinateProps, MapDataLocationProps } from '../interface/interface';
+import StudentLayout from '../modules/common/StudentLayout';
+import './Alert_map.css';
 
 function Alert_map() {
   const [location, setLocation] = useState<CoordinateProps | null>(null);
@@ -26,7 +25,7 @@ function Alert_map() {
     if (!selected) {
       setSelected(MapData[0]);
     } else {
-      setSelected(MapData.find((item) => item?._id === selected?._id));
+      setSelected(MapData.find((item) => item?._id === selected?._id) || null);
     }
   }, [MapData]);
   useEffect(() => {
@@ -52,7 +51,6 @@ function Alert_map() {
           />
         </Link>
 
-
         <Button
           type="primary"
           size="large"
@@ -73,13 +71,7 @@ function Alert_map() {
         </Button>
         <div style={{ width: '100%' }}>
           {location ? (
-            <Fullmap
-              location={location}
-              setLocation={setLocation}
-              setSelected={setSelected}
-              mapData={MapData}
-              isStatus={false}
-            />
+            <FullMap location={location} setSelected={setSelected} mapData={MapData} isStatus={false} />
           ) : (
             <div
               style={{
@@ -92,7 +84,6 @@ function Alert_map() {
               }}
             >
               <Spin size="large" />
-
             </div>
           )}
         </div>

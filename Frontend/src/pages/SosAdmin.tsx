@@ -1,16 +1,13 @@
-import React, { useEffect, useState } from 'react';
+import { Button, Card, Col, Divider, Row, Statistic, Typography } from 'antd';
 import axios from 'axios';
-import Map_data from '../data/mapData';
-import Fullmap2 from '../components/FullMap2';
-import { CoordinateProps, MapDataLocationProps } from '../interface/interface';
-import { Button, Card, Typography, Statistic, Row, Col, Divider } from 'antd';
-import { MapBoxDetailAdmin } from '../components/MapBoxDetail/MapBoxDetail2';
-import { PencilSimple } from '@phosphor-icons/react';
-import Write from '../assets/images/admin_page/write.svg';
+import { useEffect, useState } from 'react';
 import Filter from '../assets/images/admin_page/filter.svg';
-import '../pages/SosAdmin.css';
+import Write from '../assets/images/admin_page/write.svg';
+import Fullmap2 from '../components/FullMap2';
+import { MapBoxDetailAdmin } from '../components/MapBoxDetail/MapBoxDetail2';
 import ReportDetailed from '../components/ReportDetailed';
-import MapDataBackend from '../data/data';
+import { CoordinateProps, MapDataLocationProps } from '../interface/interface';
+import '../pages/SosAdmin.css';
 
 const SosAdmin = () => {
   const [location, setLocation] = useState<CoordinateProps | null>(null);
@@ -18,22 +15,20 @@ const SosAdmin = () => {
   const [allReport, setAllReport] = useState([]);
   const [MapData, setMapData] = useState<MapDataLocationProps[]>([]);
 
-  const getReport =  () => {
-    axios.get(
-      'https://hackaty.onrender.com/api/report/find_all'
-    ).then(res => {
+  const getReport = () => {
+    axios.get('https://hackaty.onrender.com/api/report/find_all').then((res) => {
       console.log(res.data.message);
-      setAllReport(res.data.message)
-      console.log(allReport)
-    })
-  }
+      setAllReport(res.data.message);
+      console.log(allReport);
+    });
+  };
   useEffect(() => {
     if (!selected) {
-        setSelected(MapData[0]);
+      setSelected(MapData[0]);
     } else {
-        setSelected(MapData.find((item) => item?._id === selected?._id));
+      setSelected(MapData.find((item) => item?._id === selected?._id) || null);
     }
-}, [MapData]);
+  }, [MapData]);
 
   useEffect(() => {
     axios.get('https://hackaty.onrender.com/api/report/user/find_all').then((res: any) => {
@@ -52,9 +47,9 @@ const SosAdmin = () => {
 
   useEffect(() => {
     setInterval(() => {
-      getReport()
+      getReport();
     }, 4000);
-  }, [])
+  }, []);
 
   return (
     <div style={{ display: 'flex' }}>

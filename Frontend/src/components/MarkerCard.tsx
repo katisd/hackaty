@@ -1,10 +1,9 @@
 import React from 'react';
-import "./FullMap.css";
+import './FullMap.css';
 import { MapDataLocationProps } from '../interface/interface';
-Map
+Map;
 const MarkerCard = ({ data }: { data: MapDataLocationProps }) => {
-    return (
-        `<div className="data">
+  return `<div className="data">
             <div className="icon">
               
             </div>
@@ -29,8 +28,7 @@ const MarkerCard = ({ data }: { data: MapDataLocationProps }) => {
                     </div>
                 </div>
             </div>
-        </div>`
-    );
+        </div>`;
 };
 
 export default MarkerCard;

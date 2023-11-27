@@ -9,12 +9,12 @@ import {
   Megaphone,
 } from '@phosphor-icons/react';
 import { Alert, Button, Card, Typography } from 'antd';
+import axios from 'axios';
+import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { CoordinateProps } from '../interface/interface';
 import StudentLayout from '../modules/common/StudentLayout';
 import StudentNav from '../modules/common/StudentNav';
-import { useEffect, useState } from 'react';
-import { CoordinateProps } from '../interface/interface';
-import axios, { Axios } from 'axios';
 // TODO Add path
 const menuNavigations = [
   {
@@ -110,7 +110,6 @@ function StudentMain() {
       })
       .then((res) => {
         setWeather(res.data.current);
-        console.log(res.data);
       });
   }, [!location]);
   const navigate = useNavigate();
