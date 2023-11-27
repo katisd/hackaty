@@ -1,8 +1,8 @@
 import React, { useEffect, useRef, useState } from 'react';
 // import ReactDOM from 'react-dom';
 import { CoordinateProps } from '../../interface/interface';
-
 const { Map } = (await google.maps.importLibrary('maps')) as google.maps.MapsLibrary;
+
 const CoordinateMap = ({
   setIsModel,
   setSelectedCoor,

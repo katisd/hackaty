@@ -1,7 +1,6 @@
 import React, { useEffect, useRef } from 'react';
 import { CoordinateProps, MapDataLocationProps } from '../interface/interface';
 import './FullMap.css';
-
 const { Map } = (await google.maps.importLibrary('maps')) as google.maps.MapsLibrary;
 const { AdvancedMarkerElement } = (await google.maps.importLibrary('marker')) as google.maps.MarkerLibrary;
 
